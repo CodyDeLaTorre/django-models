@@ -1,6 +1,6 @@
-# LAB - Class 26
+# LAB - Class 26 and 27
 
-## Project: Django-Snacks
+## Project: Django-Snacks/Models
 
 ### Author: Cody De La Torre
 
