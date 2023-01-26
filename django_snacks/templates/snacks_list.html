@@ -1,10 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-  {% for snack in object_list  %}
-    <h2>{{ snack.name }}</h2>
-    <p></p>
-  {% endfor %}
-
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  snack name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Description
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Purchaser
+              </th>
+          </tr>
+      </thead>
+      {% for snack in object_list  %}
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <a href="{% url 'snacks_detail' snack.pk %}">{{ snack.name }}</a>
+            </th>
+            <td class="px-6 py-4">
+              {{ snack.description }}
+            </td>
+            <td class="px-6 py-4">
+              {{ snack.purchaser }}
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+<a href="{% url 'snacks_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New Snack</a>
 {% endblock content %}
